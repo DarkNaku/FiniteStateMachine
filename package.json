@@ -1,0 +1,14 @@
+{
+  "name": "com.darknaku.fsm",
+  "displayName": "Finite State Machine",
+  "version": "0.1.0",
+  "unity" : "2018.3",
+  "author" : "DarkNaku",
+  "description" : "DarkNaku's Finite State Machine Package",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkNaku/FiniteStateMachine.git"
+  }
+}
