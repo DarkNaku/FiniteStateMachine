@@ -8,24 +8,6 @@
 
 
 ## 사용
-
-
-    private FiniteStateMachine<STATE> _fsm;
-    
-    private void Start()
-    {
-        _fsm = new FiniteStateMachine<STATE>();
-        var idleFSM = new FiniteStateMachine<STATE>(STATE.IDLE);
-        idleFSM.AddState(new RestState(), new EatState(), new SleepState());
-        _fsm.AddState(idleFSM, new MoveState(), new AttackState(), new DeadState());
-        _fsm.SetStartState(STATE.IDLE);
-        _fsm.Initialize();
-    }
-
-    private void Update()
-    {
-        _fsm.Update();
-    }
     
 1. 상태를 정의할 타입을 선언합니다. (문자열을 사용해도 됩니다.)
 ```csharp
