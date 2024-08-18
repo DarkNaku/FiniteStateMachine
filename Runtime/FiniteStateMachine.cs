@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,7 +16,7 @@ namespace DarkNaku.FSM {
         {
         }
 
-        public override T State => default(T);
+        public override T State => _state;
 
         public IFiniteStateMachine<T> ParentFSM => FSM;
 
@@ -42,10 +40,21 @@ namespace DarkNaku.FSM {
         }
 
         private bool _initialized;
+        private T _state;
         private T _start;
         private T _current;
         private T _next;
         private Dictionary<T, BaseState<T>> _states = new Dictionary<T, BaseState<T>>();
+        
+        public FiniteStateMachine()
+        {
+            _state = default;
+        }
+
+        public FiniteStateMachine(T state)
+        {
+            _state = state;
+        }
 
         public void AddState(params BaseState<T>[] states)
         {
@@ -161,5 +170,9 @@ namespace DarkNaku.FSM {
 
             ChangeStateIfNecessary();
         }
+    }
+
+    public class FiniteStateMachine : FiniteStateMachine<string>
+    {
     }
 }
