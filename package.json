@@ -1,7 +1,7 @@
 {
   "name": "com.darknaku.fsm",
   "displayName": "Finite State Machine",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "unity": "2018.3",
   "author": "DarkNaku",
   "description": "DarkNaku Finite State Machine Package - This package allows simple implementation of hierarchical finite state machines.",

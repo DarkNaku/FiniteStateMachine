@@ -17,6 +17,8 @@ namespace DarkNaku.FSM {
         }
 
         public override T State => _state;
+        
+        public T CurrentState => _current;
 
         public IFiniteStateMachine<T> ParentFSM => FSM;
 
@@ -24,7 +26,7 @@ namespace DarkNaku.FSM {
 
         public bool IsRootFSM => FSM == null;
 
-        public BaseState<T> CurrentState {
+        private BaseState<T> Current {
             get
             {
                 if (_states.TryGetValue(_current, out var state))
@@ -109,7 +111,7 @@ namespace DarkNaku.FSM {
             _current = _start;
             _next = _current;
 
-            CurrentState?.Enter();
+            Current?.Enter();
 
             OnEnter();
 
@@ -124,7 +126,7 @@ namespace DarkNaku.FSM {
                 return;
             }
 
-            CurrentState?.Update();
+            Current?.Update();
 
             OnUpdate();
 
@@ -133,7 +135,7 @@ namespace DarkNaku.FSM {
 
         public sealed override void Exit()
         {
-            CurrentState?.Exit();
+            Current?.Exit();
 
             OnExit();
         }
@@ -160,11 +162,11 @@ namespace DarkNaku.FSM {
 
             var prev = _current;
 
-            CurrentState.Exit();
+            Current.Exit();
 
             _current = _next;
 
-            CurrentState.Enter();
+            Current.Enter();
 
             OnTransition?.Invoke(prev, _next);
 
