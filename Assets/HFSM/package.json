@@ -1,0 +1,12 @@
+{
+  "name": "com.darknaku.hfsm",
+  "displayName": "Hierarchical Finite State Machine",
+  "version": "1.0.3",
+  "unity": "2018.3",
+  "author": "DarkNaku",
+  "description": "DarkNaku Hierarchical Finite State Machine Package - This package allows simple implementation of hierarchical finite state machines.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkNaku/HFSM.git?path=Assets/HFSM"
+  }
+}
